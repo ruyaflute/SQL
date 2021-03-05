@@ -1,0 +1,103 @@
+CREATE TABLE Students (
+StudentID int,
+FirstName varchar(255),
+LastName varchar(255),
+ClassName varchar(255)
+);
+
+INSERT INTO Students (FirstName, LastName, ClassName)
+Values ('Simran', 'K', 'Oracle');
+
+SELECT * FROM Students;
+
+INSERT INTO Students (StudentID)
+VALUES (1);
+
+DELETE FROM Students 
+WHERE StudentID=1;
+
+UPDATE Students
+SET StudentID=1
+WHERE FirstName='Simran';
+
+DROP TABLE Students;
+-------
+CREATE TABLE Students (
+StudentID int NOT NULL,
+LastName varchar(255),
+FirstNAME varchar(255) NOT NULL,
+ClassName varchar(255)
+);
+
+- How to auto increament ID in oracle?
+
+INSERT INTO Students
+Values (1, 'Simran', 'K', 'Oracle');
+
+INSERT INTO Students (
+StudentID, LastName, FirstName)
+VALUES (2, 'Z','Ruya');
+
+UPDATE Students
+SET LastName='K', FirstName='Simran'
+WHERE StudentID=1;
+
+SELECT * FROM Students;
+
+UPDATE Students
+SET ClassName='Oracle'
+WHERE StudentID=2;
+
+INSERT INTO Students
+Values 
+(4, 'A', 'Keven', 'Oracle');
+------
+SELECT * FROM Students
+ORDER BY StudentID ASC;
+
+SELECT FirstName, LastName FROM Students
+WHERE ClassName='SQL';
+------
+CREATE TABLE Majors (
+StudentID int NOT Null,
+CollegeName varchar(255),
+City varchar(255),
+Major varchar(255) NOT NULL
+);
+
+INSERT INTO Majors
+VALUES
+(1, 'Queens', 'Flushing', 'Accounting' );
+
+INSERT INTO Majors
+VALUES
+(2, 'Lawrence', 'Wisconsin', 'Psychology' );
+
+INSERT INTO Majors
+VALUES
+(3, 'NYU', 'Manhattan', 'Business' );
+
+INSERT INTO Majors
+VALUES
+(4, 'Columbia', 'Manhattan', 'Biology' );
+
+SELECT * FROM Majors;
+-------
+SELECT Students.FirstName, Students.ClassName, Majors.CollegeName, Majors.Major
+FROM Students
+INNER JOIN Majors
+ON Students.StudentID=Majors.StudentID;
+
+- Insert multiple values don't work?
+- Aliases don't work?
+
+SELECT Students.StudentID, Students.FirstName, Students.ClassName, Majors.CollegeName, Majors.Major
+FROM Students,  Majors
+WHERE Students.StudentID=Majors.StudentID;
+
+Your practice:
+SELECT Students.StudentID, Students.FirstName, Majors.Major FROM Students
+INNER JOIN Majors
+ON Students.StudentID=Majors.StudentID;
+
+
