@@ -100,4 +100,14 @@ SELECT Students.StudentID, Students.FirstName, Majors.Major FROM Students
 INNER JOIN Majors
 ON Students.StudentID=Majors.StudentID;
 
+---------
+select name from dogs
+union
+select name from cats;
+
+---------
+update  enrollments
+set year = 2015 
+where id >= 20 and id <= 100;
+
 
